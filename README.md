@@ -267,22 +267,63 @@ npm run dev
 
 ---
 
-## 📤 Export Feature
+## 📤 Export Features
 
-The "Export HTML" button generates a standalone HTML file:
+### Export HTML (Desktop View)
+Full desktop interface with centered feed:
+- Uses authentic **Chirp font** from Twitter CDN
+- Sticky header with X branding and For you/Following tabs
+- All posts with verification badges and account labels
+- Static file with no JavaScript required
 
-- **Self-contained** - All CSS inline
-- **No JavaScript** - Static, scrollable mockup
-- **External dependencies**: Google Fonts (Inter), avatar images
-- **File size**: ~15-30KB depending on post count
+### Export Mobile (Survey Stimulus)
+Optimized for research experiments:
+- **Mobile-only view** - no sidebars or trending
+- Clean, focused feed perfect for survey stimuli
+- Chirp font with system fallbacks
+- Full-width responsive layout
 
-### Export includes:
-- All current posts with full styling
-- Verification badges
-- Account labels
-- Quote posts
-- Engagement metrics
-- Sticky header with X branding
+### Export/Import JSON
+For researchers managing feed data:
+- **Export JSON** saves all posts with metadata
+- **Import JSON** loads previously saved feeds
+- Programmatically create feeds using the JSON schema
+
+### JSON Schema
+
+```json
+{
+  "version": "1.0",
+  "exportDate": "2024-01-01T00:00:00.000Z",
+  "posts": [
+    {
+      "id": 1,
+      "displayName": "User Name",
+      "username": "handle",
+      "verified": "blue|gold|gray|none",
+      "accountLabel": "parody|fan|commentary|automated|business|government|state-affiliated|official|none",
+      "content": "Post text content",
+      "image": "https://example.com/image.jpg or null",
+      "avatar": "https://example.com/avatar.jpg or null",
+      "timestamp": "2h",
+      "replies": "1.2K",
+      "reposts": "500",
+      "likes": "5K",
+      "views": "100K",
+      "quotePost": null
+    }
+  ]
+}
+```
+
+---
+
+## 🔬 Survey & Research Usage
+
+1. **Create your feed** - Add posts via the UI or import a JSON file
+2. **Export Mobile HTML** - Click the smartphone icon to export
+3. **Embed in survey** - Use the HTML file as a stimulus in Qualtrics, Prolific, etc.
+4. **Batch creation** - Write a script to generate multiple JSON files, import each, and export
 
 ---
 
